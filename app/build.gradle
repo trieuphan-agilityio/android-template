@@ -1,19 +1,31 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        applicationId "com.example.demotemplate"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "default"
+        multiDexEnabled = true
+    }
+
+    flavorDimensions "environment"
+
+    dataBinding {
+        enabled = true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 
     buildTypes {
@@ -23,15 +35,99 @@ android {
         }
     }
 
+    productFlavors {
+        staging {
+            buildConfigField "String", "BASE_URL", "\"https://beta.mypaga.com/paga-pos-app/\""
+            buildConfigField "String", "MPARTICLE_API_KEY", "\"MPARTICLE_API_KEY\""
+            buildConfigField "String", "MPARTICLE_SECRET", "\"MPARTICLE_API_KEY\""
+        }
+
+        prod {
+            buildConfigField "String", "BASE_URL", "\"https://mypaga.com/paga-pos-app/\""
+            buildConfigField "String", "MPARTICLE_API_KEY", "\"MPARTICLE_API_KEY\""
+            buildConfigField "String", "MPARTICLE_SECRET", "\"MPARTICLE_API_KEY\""
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api deps.androidx.constraint_layout
+    api deps.kotlin.kotlin_stdlib_jdk7
+
+    // Android Material UI
+    api deps.google.material
+
+    // Firebase
+    api deps.google.firebase.core
+    api deps.google.firebase.analytics
+    api 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    // Logger
+    api deps.logging.timber
+
+    // DI: Koin for Android
+    api deps.di.koin.android
+    api deps.di.koin.android_scope
+    api deps.di.koin.androidx_viewmodel
+    kapt deps.di.koin.androidx_viewmodel
+    api deps.di.koin.android_architecture
+
+    // Image loading Coil
+    api deps.images.coil
+
+    // Data Binding
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    api deps.arch.lifecycle.extensions
+    api deps.arch.lifecycle.viewmodel_kotlin
+    api deps.arch.lifecycle.common_java8
+
+    // Coroutines
+    api deps.kotlin.coroutines.core
+    api deps.kotlin.coroutines.android
+
+    // Biometrics authentication
+    api deps.androidx.biometric
+
+    //Support rotate image
+    implementation deps.androidx.exifinterface
+
+    // Card IO scanner
+    implementation deps.view.scanner_card
+
+    // Expendable recycle grid
+    implementation deps.view.recyclerview.expendable
+
+    // Add the RxBinding dependency
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+
+    // Alerter
+    implementation deps.view.alert
+
+    // ReString
+    implementation deps.language.restring
+
+    //commons
+    implementation deps.commons
+
+    //permission
+    implementation deps.permission.dexter
+
+    //place holder indicator
+    implementation deps.view.shimmer
+
+    // Modules dependency
+    testImplementation deps.unittest.junit
+    testImplementation deps.di.koin.test
+    androidTestImplementation deps.di.koin.test
+    androidTestImplementation deps.androidx.test.ext_junit
+    androidTestImplementation deps.androidx.test.espresso.core
+    androidTestImplementation deps.androidx.test.espresso.intents
 }

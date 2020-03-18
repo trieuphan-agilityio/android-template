@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#f7931e</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#f7931e</color>
+    <color name="colorGray">#26000000</color>
+    <color name="colorPrimaryLight">#fab876</color>
+    <color name="white_two">#f7f7f7</color>
+    <color name="colorTextDefault">#231f20</color>
+    <color name="brown_grey">#7d7b7a</color>
+    <color name="colorGreenLight">#80cadb2a</color>
+    <color name="reddish_orange">#f26522</color>
+    <color name="black_87">#87000000</color>
+    <color name="tomato">#e32e2e</color>
+    <color name="sickly_green">#9caa1e</color>
+    <color name="very_light_pink_two">#f0f0f0</color>
+    <color name="brown_grey_60">#607d7b7a</color>
+    <color name="black">#000000</color>
+    <color name="black_two">#333333</color>
+    <color name="black_10">#10000000</color>
+    <color name="blue_grey">#818598</color>
+    <color name="black_three">#030303</color>
+    <color name="cool_grey">#a7a9ac</color>
+    <color name="very_light_pink">#d8d8d8</color>
+    <color name="sickly_yellow">#cadb2a</color>
+    <color name="bluey_grey">#939598</color>
+    <color name="tangerine_two">#f2931e</color>
+
+    <color name="text_hint">#7d7b7a</color>
+    <color name="edt_background">#FFF</color>
+    <color name="edt_border">#807B7B7A</color>
+    <color name="text_grey">#7d7b7a</color>
+    <color name="activity_background">#f7f7f7</color>
+    <color name="bottom_line_layout">#d8d8d8</color>
+    <color name="bottom_line_text">#231f20</color>
+    <color name="off_yellow">#cfdd4a</color>
+
+    <color name="color_text_orange">#f26522</color>
+    <color name="color_text_btn_orange">#f7931e</color>
+    <color name="color_btn_orange_disable">#fab876</color>
+    <color name="color_bg_gray_light">#f7f7f7</color>
+    <color name="color_txt_white">#FFFFFF</color>
+
+    <color name="trackColor">#807b7b7a</color>
+    <color name="checkedColor">#f26522</color>
+    <color name="unCheckedColor">#4a4a4a</color>
+
+    <color name="profile_header">#a7a9ac</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color_text_dark">#1d1d26</color>
+
+    <color name="color_bg_transparent">#00ffffff</color>
+    <color name="color_gray_more_Light">#eaeaea</color>
+    <color name="color_text_grey">#7d7b7a</color>
+    <color name="color_error">#ff0000</color>
+    <color name="place_holder">#f1f1f2</color>
+    <color name="snackbar_bg">#ffc20e</color>
 </resources>

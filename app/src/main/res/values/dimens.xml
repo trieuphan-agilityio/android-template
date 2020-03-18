@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="body_10">10sp</dimen>
+    <dimen name="body_11">11sp</dimen>
+    <dimen name="body_12">12sp</dimen>
+    <dimen name="body_13">13sp</dimen>
+    <dimen name="body_14">14sp</dimen>
+    <dimen name="body_15">15sp</dimen>
+    <dimen name="body_16">16sp</dimen>
+    <dimen name="body_18">18sp</dimen>
+    <dimen name="header_3">20sp</dimen>
+    <dimen name="header_2">22sp</dimen>
+    <dimen name="header_1">24sp</dimen>
+
+    <dimen name="margin_x_large">100dp</dimen>
+    <dimen name="margin_large">50dp</dimen>
+    <dimen name="margin_medium">30dp</dimen>
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="margin_body">15dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_x_small">8dp</dimen>
+
+    <dimen name="margin_160">160dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="padding_80">80dp</dimen>
+    <dimen name="height_150">150dp</dimen>
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="min_width_2">2dp</dimen>
+    <dimen name="corner_radius_2">2dp</dimen>
+    <dimen name="margin_top_15">15dp</dimen>
+
+    <dimen name="radius_medium">10dp</dimen>
+    <dimen name="radius_small">7dp</dimen>
+    <dimen name="radius_button">26dp</dimen>
+    <dimen name="snackbar_radius">20dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_small">2dp</dimen>
+    <dimen name="margin_vertical">30dp</dimen>
+    <dimen name="margin_l_vertical">50dp</dimen>
+    <dimen name="margin_vertical_sub">20dp</dimen>
+    <dimen name="margin_s_vertical">15dp</dimen>
+    <dimen name="margin_label_input">5dp</dimen>
+    <dimen name="dialog_radius">10dp</dimen>
+    <dimen name="dialog_padding">10dp</dimen>
+    <dimen name="dialog_margin">20dp</dimen>
+    <dimen name="arrow_width">10dp</dimen>
+
+</resources>
