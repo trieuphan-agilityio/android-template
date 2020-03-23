@@ -1,2 +1,4 @@
 rootProject.name='Demo Template'
 include ':app'
+include ':core'
+include ':common'
