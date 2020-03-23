@@ -74,6 +74,8 @@ dependencies {
     androidTestImplementation deps.androidx.test.runner
     androidTestImplementation deps.arch.persistence.room.test
 
+    api deps.arch.lifecycle.live_data_ktx
+
     // Logger
     api deps.logging.timber
 }
