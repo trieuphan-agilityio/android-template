@@ -1,4 +1,4 @@
-package com.example.template.ui.common
+package com.example.template.ui.common.base
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
