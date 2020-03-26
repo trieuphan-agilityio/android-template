@@ -13,17 +13,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mypaga.base.ui.common.views.NormalEditText
-        android:id="@+id/edtDate"
-        style="@style/EditText"
-        android:background="@drawable/edit_background"
-        android:layout_width="match_parent"
-        android:layout_marginTop="4dp"
-        android:drawableStart="@drawable/ic_calendar"
-        android:drawablePadding="@dimen/margin_small"
-        android:focusable="false"
-        android:hint="@string/hint_date_of_birth"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+<!--    <com.mypaga.base.ui.common.views.NormalEditText-->
+<!--        android:id="@+id/edtDate"-->
+<!--        style="@style/EditText"-->
+<!--        android:background="@drawable/edit_background"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:drawableStart="@drawable/ic_calendar"-->
+<!--        android:drawablePadding="@dimen/margin_small"-->
+<!--        android:focusable="false"-->
+<!--        android:hint="@string/hint_date_of_birth"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvTitle" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

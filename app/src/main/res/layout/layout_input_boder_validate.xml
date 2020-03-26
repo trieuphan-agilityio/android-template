@@ -10,14 +10,14 @@
         android:background="@drawable/bg_input_border"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.mypaga.base.ui.common.views.NormalEditText
-            android:id="@+id/editText"
-            style="@style/EditText"
-            android:layout_width="0dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvPrefix"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <com.mypaga.base.ui.common.views.NormalEditText-->
+<!--            android:id="@+id/editText"-->
+<!--            style="@style/EditText"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tvPrefix"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/tvPrefix"
