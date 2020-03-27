@@ -70,12 +70,10 @@ class App : Application() {
     }
 
     private fun registerConnectionReceiver() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val networkStateReceiver = NetworkStateReceiver(onStateChanged = onNetworkStateChange)
-            val intentFilter = IntentFilter()
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
-            registerReceiver(networkStateReceiver, intentFilter)
-        }
+        val networkStateReceiver = NetworkStateReceiver(onStateChanged = onNetworkStateChange)
+        val intentFilter = IntentFilter()
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
+        registerReceiver(networkStateReceiver, intentFilter)
     }
 
     private fun registerLocationReceiver() {
