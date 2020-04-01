@@ -34,6 +34,21 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    signingConfigs {
+
+        release {
+            try {
+                Properties properties = new Properties()
+                properties.load(project.rootProject.file('app.properties').newDataInputStream())
+                storeFile file(properties.getProperty('key.keystore.filePath'))
+                storePassword properties.getProperty('key.keystore.storePassword')
+                keyPassword properties.getProperty('key.keystore.keyPassword')
+                keyAlias properties.getProperty('key.keystore.keyAlias')
+            } catch (Exception e) {
+            }
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -42,14 +57,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+            signingConfig signingConfigs.release
         }
     }
 
     productFlavors {
         dev {
+            buildConfigField "String", "BASE_URL", "\"https://beta.mypaga.com/paga-webservices/customer-mobile/\""
+            buildConfigField "String", "CALLBACK_URL", "\"https://beta.mypaga.com/paga-webservices/customer-mobile/tds-return\""
         }
 
         prod {
+            buildConfigField "String", "BASE_URL", "\"https://beta.mypaga.com/paga-webservices/customer-mobile/\""
+            buildConfigField "String", "CALLBACK_URL", "\"https://beta.mypaga.com/paga-webservices/customer-mobile/tds-return\""
         }
     }
 }
