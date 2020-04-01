@@ -47,6 +47,7 @@ def versions = [:]
     // Google
     versions.material = "1.0.0"
     versions.firebase = "17.2.1"
+    versions.firebase_message ="20.1.4"
 
     //coil
     versions.coil = "0.7.0"
@@ -200,6 +201,7 @@ def google = [:]
     def firebase = [:]
         firebase.core = "com.google.firebase:firebase-core:$versions.firebase"
         firebase.analytics = "com.google.firebase:firebase-analytics:$versions.firebase"
+        firebase.message = "com.google.firebase:firebase-messaging:$versions.firebase_message"
     google.firebase = firebase
 deps.google = google
 

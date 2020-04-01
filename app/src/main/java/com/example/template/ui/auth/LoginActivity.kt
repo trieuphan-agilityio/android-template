@@ -1,7 +1,6 @@
 package com.example.template.ui.auth
 
 import android.os.Bundle
-import android.util.Log
 import androidx.biometric.BiometricConstants
 import androidx.biometric.BiometricPrompt
 import com.example.common.utils.MainExecutor
@@ -29,10 +28,8 @@ class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class) {
         if (hasSupportBiometric(this)) {
             if (!hasBiometricEnrolled(this)) { //BIOMETRIC_ERROR_NONE_ENROLLED
                 // TODO: handle none enrolled maybe show notify message.
-                Log.d("TAG", "---- not enrolled")
             } else { //BIOMETRIC_SUCCESS
                 // TODO: handle enrolled.
-                Log.d("TAG", "---- enrolled")
                 biometricPrompt = BiometricPrompt(this, executor, biometricAuthenticationCallback())
                 biometricPrompt?.authenticate(buildPromptInfo())
             }
@@ -48,12 +45,10 @@ class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class) {
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
                 // TODO: Handle authenticate success
-                Log.d("TAG", "---- onAuthenticationSucceeded")
             }
 
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
-                Log.d("TAG", "---- onAuthenticationError")
                 if (errorCode == BiometricConstants.ERROR_NEGATIVE_BUTTON) biometricPrompt?.cancelAuthentication()
             }
         }

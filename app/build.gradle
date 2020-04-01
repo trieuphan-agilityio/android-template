@@ -68,6 +68,7 @@ dependencies {
     // Firebase
     api deps.google.firebase.core
     api deps.google.firebase.analytics
+    api deps.google.firebase.message
 
     // Logger
     api deps.logging.timber
