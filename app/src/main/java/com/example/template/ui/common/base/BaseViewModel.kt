@@ -17,7 +17,7 @@ open class BaseViewModel : ViewModel(), CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
-    fun clean() {
+    private fun clean() {
         job.cancel()
         compositeDisposable.clear()
     }

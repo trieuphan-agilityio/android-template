@@ -1,15 +1,22 @@
 package com.example.template.ui.auth
 
 import android.os.Bundle
+import android.view.View
 import androidx.biometric.BiometricConstants
 import androidx.biometric.BiometricPrompt
+import androidx.lifecycle.Observer
 import com.example.common.utils.MainExecutor
 import com.example.common.utils.hasBiometricEnrolled
 import com.example.common.utils.hasSupportBiometric
+import com.example.core.data.remote.common.Result
+import com.example.core.data.remote.common.isSuccess
+import com.example.core.data.remote.request.BaseRequest
+import com.example.core.data.remote.response.UserDataResponse
 import com.example.template.R
 import com.example.template.ui.common.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class) {
+class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class), View.OnClickListener {
 
     private val executor = MainExecutor()
     private var biometricPrompt: BiometricPrompt? = null
@@ -18,7 +25,10 @@ class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupBiometric();
+        setupBiometric()
+        btnLogin.setOnClickListener(this)
+        // Observer get user data
+        viewModel.userData.observe(this, userDataObserver)
     }
 
     /**
@@ -65,4 +75,22 @@ class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class) {
             .build()
     }
 
+    /**
+     * Observer get user data
+     */
+    private val userDataObserver = Observer<Result<UserDataResponse>> {
+
+        if (!it.isSuccess()) {
+            it.error?.let { _ ->
+                onResponseError(it.error)
+            }
+        } else {
+            // Handle success.
+        }
+    }
+
+    override fun onClick(v: View?) {
+        val body = BaseRequest("e634b09a2f3a7757", "android019", "2VCzFmepI0soVKkZH6C9lg==", "EMAIL", "password")
+        viewModel.login(body)
+    }
 }

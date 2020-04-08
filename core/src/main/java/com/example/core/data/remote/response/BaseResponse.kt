@@ -1,6 +1,7 @@
 package com.example.core.data.remote.response
 
 open class BaseResponse(var responseCode: Int, var message: String) {
+
     companion object {
         const val SUCCESS = 0
         const val MESSAGE = "SUCCESS"

@@ -1,9 +1,17 @@
 package com.example.core.data.local
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.core.data.entities.User
+import com.example.core.data.local.dao.UserDao
 
+@Database(
+    entities = [
+        User::class
+    ], version = 1, exportSchema = true
+)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
@@ -21,4 +29,6 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
     }
+
+    abstract fun getUserDao(): UserDao
 }
