@@ -5,6 +5,7 @@ import android.view.View
 import androidx.biometric.BiometricConstants
 import androidx.biometric.BiometricPrompt
 import androidx.lifecycle.Observer
+import com.example.common.utils.InputValidator
 import com.example.common.utils.MainExecutor
 import com.example.common.utils.hasBiometricEnrolled
 import com.example.common.utils.hasSupportBiometric
@@ -14,6 +15,8 @@ import com.example.core.data.remote.request.BaseRequest
 import com.example.core.data.remote.response.UserDataResponse
 import com.example.template.R
 import com.example.template.ui.common.base.BaseActivity
+import io.reactivex.rxkotlin.Observables
+import io.reactivex.rxkotlin.addTo
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class), View.OnClickListener {
@@ -25,8 +28,12 @@ class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class), View.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        validateInputs()
         setupBiometric()
+        resetInputFields()
         btnLogin.setOnClickListener(this)
+
         // Observer get user data
         viewModel.userData.observe(this, userDataObserver)
     }
@@ -44,6 +51,26 @@ class LoginActivity : BaseActivity<LoginViewModel>(LoginViewModel::class), View.
                 biometricPrompt?.authenticate(buildPromptInfo())
             }
         }
+    }
+
+    private fun validateInputs() {
+        val usernameObservable =
+            editPrincipal.validate({ InputValidator.username(it) }).toObservable()
+
+        val passwordObservable =
+            editPassword.validate({ !it.isNullOrEmpty() }).toObservable()
+
+        Observables.combineLatest(
+                usernameObservable,
+                passwordObservable
+            ) { v1, v2 -> v1 and v2 }
+            .subscribe { btnLogin.isEnabled = it }
+            .addTo(compositeDisposable)
+    }
+
+    private fun resetInputFields() {
+        if (editPrincipal.text.isNotBlank()) editPrincipal.clear()
+        if (editPassword.text.isNotBlank()) editPassword.clear()
     }
 
     /**

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -78,8 +78,36 @@
         <attr name="paddingTop" format="dimension" />
     </declare-styleable>
 
+    <style name="EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:inputType">text</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/body_14</item>
+        <item name="android:textColorHint">@color/brown_grey_60</item>
+        <item name="android:paddingStart">@dimen/padding_10</item>
+        <item name="android:paddingEnd">@dimen/padding_10</item>
+        <item name="android:layout_height">@dimen/height_50</item>
+        <item name="android:minWidth">@dimen/min_width_2</item>
+        <item name="android:textColor">@color/colorTextDefault</item>
+        <item name="android:textCursorDrawable">@drawable/edit_cursor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:font" tools:targetApi="o">@font/roboto_light</item>
+    </style>
+
     <style name="InputError">
         <item name="android:textColor">@color/color_error</item>
     </style>
+
+    <!--  Button  -->
+    <declare-styleable name="Button">
+        <attr name="isConfigAlignParentBottom" format="boolean" />
+        <attr name="parentId" format="reference" />
+        <attr name="margin" format="dimension" />
+        <attr name="typeLayout" format="enum">
+            <enum name="RelativeLayout" value="0" />
+            <enum name="ConstrainLayout" value="1" />
+        </attr>
+    </declare-styleable>
 
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.example.core.data.remote.common.Error
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
@@ -19,6 +20,8 @@ abstract class BaseActivity<out VM: BaseViewModel>(clazz: KClass<VM>) : AppCompa
 
     // Lazy Inject SharePreference
     open val sharedPref: SharedPreferences by inject()
+
+    protected val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

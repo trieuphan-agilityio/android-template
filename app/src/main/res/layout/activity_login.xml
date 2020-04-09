@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <com.example.template.ui.common.view.InputBorderValidation
         android:id="@+id/editPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:importantForAutofill="no" />
 
-    <EditText
+    <com.example.template.ui.common.view.InputBorderValidation
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_marginEnd="15dp"
         android:ems="10"
         android:hint="@string/hint_password"
-        android:inputType="numberPassword"
+        app:typeEditText="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
