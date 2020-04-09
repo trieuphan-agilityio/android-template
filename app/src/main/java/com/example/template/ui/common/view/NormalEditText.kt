@@ -56,12 +56,8 @@ open class NormalEditText : AppCompatEditText {
         }
 
         //set status focus change
-//        focusChange()
+        focusChange()
     }
-
-//    fun formatter(format: (String?) -> String?, isDecimal: Boolean = false) {
-//        addTextChangedListener(MaskTextWatcher(this, isDecimal, format))
-//    }
 
     /*******************************
      *  For security

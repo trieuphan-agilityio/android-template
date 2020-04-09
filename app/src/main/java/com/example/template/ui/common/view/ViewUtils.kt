@@ -1,15 +1,12 @@
 package com.example.template.ui.common.view
 
-import android.app.Activity
 import android.content.Context
-import android.os.CountDownTimer
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.DisplayMetrics
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
-import com.example.template.R
 import kotlin.math.roundToInt
 
 /**

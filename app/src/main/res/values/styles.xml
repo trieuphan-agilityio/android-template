@@ -95,9 +95,37 @@
         <item name="android:font" tools:targetApi="o">@font/roboto_light</item>
     </style>
 
+    <style name="EditTextBase">
+        <item name="android:textCursorDrawable">@drawable/edit_cursor</item>
+    </style>
+
     <style name="InputError">
         <item name="android:textColor">@color/color_error</item>
     </style>
+
+    <style name="TextNormalGrey">
+        <item name="android:textColor">@color/color_text_grey</item>
+        <item name="android:textSize">@dimen/body_14</item>
+    </style>
+
+    <declare-styleable name="InputLayout">
+        <attr name="textHint" format="string" />
+        <attr name="hintColor" format="color" />
+        <attr name="focusDefault" format="boolean" />
+        <attr name="android:inputType" />
+        <attr name="maxLine" format="integer" />
+        <attr name="android:maxLength" />
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="ValidateInputLayout">
+        <attr name="showErrorIcon" format="boolean" />
+        <attr name="errorIcon" format="reference" />
+        <attr name="errorColor" format="color" />
+        <attr name="validIcon" format="reference" />
+    </declare-styleable>
 
     <!--  Button  -->
     <declare-styleable name="Button">
